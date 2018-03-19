@@ -46,25 +46,6 @@
     "variables": {},
     "resources": [
         {
-            "comments": "Generalized from resource: '/subscriptions/30fc406c-c745-44f0-be2d-63b1c860cde0/resourceGroups/DEVintersection/providers/Microsoft.EventHub/namespaces/SeismicThunder'.",
-            "type": "Microsoft.EventHub/namespaces",
-            "sku": {
-                "name": "Standard",
-                "tier": "Standard",
-                "capacity": 1
-            },
-            "name": "[parameters('namespaces_SeismicThunder_name')]",
-            "apiVersion": "2017-04-01",
-            "location": "East US",
-            "tags": {},
-            "scale": null,
-            "properties": {
-                "isAutoInflateEnabled": true,
-                "maximumThroughputUnits": 20
-            },
-            "dependsOn": []
-        },
-        {
             "comments": "Generalized from resource: '/subscriptions/30fc406c-c745-44f0-be2d-63b1c860cde0/resourcegroups/DEVintersection/providers/Microsoft.EventHub/namespaces/SeismicThunder/AuthorizationRules/RootManageSharedAccessKey'.",
             "type": "Microsoft.EventHub/namespaces/AuthorizationRules",
             "name": "[concat(parameters('namespaces_SeismicThunder_name'), '/', parameters('AuthorizationRules_RootManageSharedAccessKey_name'))]",
