@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "namespaces_SeismicThunder_name": {
+            "value": "SeismicThunder"
+        },
+        "eventhubs_carevents_name": {
+            "value": "carevents"
+        },
+        "eventhubs_centralregion_name": {
+            "value": "centralregion"
+        },
+        "eventhubs_southeastregion_name": {
+            "value": "southeastregion"
+        },
+        "eventhubs_southwestregion_name": {
+            "value": "southwestregion"
+        },
+        "consumergroups_$Default_name": {
+            "value": "$Default"
+        },
+        "AuthorizationRules_RootManageSharedAccessKey_name": {
+            "value": "RootManageSharedAccessKey"
+        },
+        "consumergroups_$Default_name_1": {
+            "value": "$Default"
+        },
+        "consumergroups_$Default_name_2": {
+            "value": "$Default"
+        },
+        "consumergroups_$Default_name_3": {
+            "value": "$Default"
+        }
+    }
+}

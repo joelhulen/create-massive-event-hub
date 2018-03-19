@@ -1,0 +1,202 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "namespaces_SeismicThunder_name": {
+            "defaultValue": "SeismicThunder",
+            "type": "String"
+        },
+        "eventhubs_carevents_name": {
+            "defaultValue": "carevents",
+            "type": "String"
+        },
+        "eventhubs_centralregion_name": {
+            "defaultValue": "centralregion",
+            "type": "String"
+        },
+        "eventhubs_southeastregion_name": {
+            "defaultValue": "southeastregion",
+            "type": "String"
+        },
+        "eventhubs_southwestregion_name": {
+            "defaultValue": "southwestregion",
+            "type": "String"
+        },
+        "consumergroups_$Default_name": {
+            "defaultValue": "$Default",
+            "type": "String"
+        },
+        "AuthorizationRules_RootManageSharedAccessKey_name": {
+            "defaultValue": "RootManageSharedAccessKey",
+            "type": "String"
+        },
+        "consumergroups_$Default_name_1": {
+            "defaultValue": "$Default",
+            "type": "String"
+        },
+        "consumergroups_$Default_name_2": {
+            "defaultValue": "$Default",
+            "type": "String"
+        },
+        "consumergroups_$Default_name_3": {
+            "defaultValue": "$Default",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/30fc406c-c745-44f0-be2d-63b1c860cde0/resourceGroups/DEVintersection/providers/Microsoft.EventHub/namespaces/SeismicThunder'.",
+            "type": "Microsoft.EventHub/namespaces",
+            "sku": {
+                "name": "Standard",
+                "tier": "Standard",
+                "capacity": 1
+            },
+            "name": "[parameters('namespaces_SeismicThunder_name')]",
+            "apiVersion": "2017-04-01",
+            "location": "East US",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "isAutoInflateEnabled": true,
+                "maximumThroughputUnits": 20
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/30fc406c-c745-44f0-be2d-63b1c860cde0/resourcegroups/DEVintersection/providers/Microsoft.EventHub/namespaces/SeismicThunder/AuthorizationRules/RootManageSharedAccessKey'.",
+            "type": "Microsoft.EventHub/namespaces/AuthorizationRules",
+            "name": "[concat(parameters('namespaces_SeismicThunder_name'), '/', parameters('AuthorizationRules_RootManageSharedAccessKey_name'))]",
+            "apiVersion": "2017-04-01",
+            "location": "East US",
+            "scale": null,
+            "properties": {
+                "rights": [
+                    "Listen",
+                    "Manage",
+                    "Send"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_SeismicThunder_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/30fc406c-c745-44f0-be2d-63b1c860cde0/resourcegroups/DEVintersection/providers/Microsoft.EventHub/namespaces/SeismicThunder/eventhubs/carevents'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs",
+            "name": "[concat(parameters('namespaces_SeismicThunder_name'), '/', parameters('eventhubs_carevents_name'))]",
+            "apiVersion": "2017-04-01",
+            "location": "East US",
+            "scale": null,
+            "properties": {
+                "messageRetentionInDays": 2,
+                "partitionCount": 100,
+                "status": "Active"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_SeismicThunder_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/30fc406c-c745-44f0-be2d-63b1c860cde0/resourcegroups/DEVintersection/providers/Microsoft.EventHub/namespaces/SeismicThunder/eventhubs/centralregion'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs",
+            "name": "[concat(parameters('namespaces_SeismicThunder_name'), '/', parameters('eventhubs_centralregion_name'))]",
+            "apiVersion": "2017-04-01",
+            "location": "East US",
+            "scale": null,
+            "properties": {
+                "messageRetentionInDays": 2,
+                "partitionCount": 100,
+                "status": "Active"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_SeismicThunder_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/30fc406c-c745-44f0-be2d-63b1c860cde0/resourcegroups/DEVintersection/providers/Microsoft.EventHub/namespaces/SeismicThunder/eventhubs/southeastregion'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs",
+            "name": "[concat(parameters('namespaces_SeismicThunder_name'), '/', parameters('eventhubs_southeastregion_name'))]",
+            "apiVersion": "2017-04-01",
+            "location": "East US",
+            "scale": null,
+            "properties": {
+                "messageRetentionInDays": 2,
+                "partitionCount": 100,
+                "status": "Active"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_SeismicThunder_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/30fc406c-c745-44f0-be2d-63b1c860cde0/resourcegroups/DEVintersection/providers/Microsoft.EventHub/namespaces/SeismicThunder/eventhubs/southwestregion'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs",
+            "name": "[concat(parameters('namespaces_SeismicThunder_name'), '/', parameters('eventhubs_southwestregion_name'))]",
+            "apiVersion": "2017-04-01",
+            "location": "East US",
+            "scale": null,
+            "properties": {
+                "messageRetentionInDays": 2,
+                "partitionCount": 100,
+                "status": "Active"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_SeismicThunder_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/30fc406c-c745-44f0-be2d-63b1c860cde0/resourcegroups/DEVintersection/providers/Microsoft.EventHub/namespaces/SeismicThunder/eventhubs/carevents/consumergroups/$Default'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/consumergroups",
+            "name": "[concat(parameters('namespaces_SeismicThunder_name'), '/', parameters('eventhubs_carevents_name'), '/', parameters('consumergroups_$Default_name'))]",
+            "apiVersion": "2017-04-01",
+            "location": "East US",
+            "scale": null,
+            "properties": {},
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_SeismicThunder_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('namespaces_SeismicThunder_name'), parameters('eventhubs_carevents_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/30fc406c-c745-44f0-be2d-63b1c860cde0/resourcegroups/DEVintersection/providers/Microsoft.EventHub/namespaces/SeismicThunder/eventhubs/centralregion/consumergroups/$Default'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/consumergroups",
+            "name": "[concat(parameters('namespaces_SeismicThunder_name'), '/', parameters('eventhubs_centralregion_name'), '/', parameters('consumergroups_$Default_name_1'))]",
+            "apiVersion": "2017-04-01",
+            "location": "East US",
+            "scale": null,
+            "properties": {},
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_SeismicThunder_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('namespaces_SeismicThunder_name'), parameters('eventhubs_centralregion_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/30fc406c-c745-44f0-be2d-63b1c860cde0/resourcegroups/DEVintersection/providers/Microsoft.EventHub/namespaces/SeismicThunder/eventhubs/southeastregion/consumergroups/$Default'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/consumergroups",
+            "name": "[concat(parameters('namespaces_SeismicThunder_name'), '/', parameters('eventhubs_southeastregion_name'), '/', parameters('consumergroups_$Default_name_2'))]",
+            "apiVersion": "2017-04-01",
+            "location": "East US",
+            "scale": null,
+            "properties": {},
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_SeismicThunder_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('namespaces_SeismicThunder_name'), parameters('eventhubs_southeastregion_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/30fc406c-c745-44f0-be2d-63b1c860cde0/resourcegroups/DEVintersection/providers/Microsoft.EventHub/namespaces/SeismicThunder/eventhubs/southwestregion/consumergroups/$Default'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/consumergroups",
+            "name": "[concat(parameters('namespaces_SeismicThunder_name'), '/', parameters('eventhubs_southwestregion_name'), '/', parameters('consumergroups_$Default_name_3'))]",
+            "apiVersion": "2017-04-01",
+            "location": "East US",
+            "scale": null,
+            "properties": {},
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_SeismicThunder_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('namespaces_SeismicThunder_name'), parameters('eventhubs_southwestregion_name'))]"
+            ]
+        }
+    ]
+}
